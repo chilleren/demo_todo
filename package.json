@@ -1,0 +1,13 @@
+{
+  "name": "demo_todo",
+  "version": "0.0.1",
+  "description": "Todo demo app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "express": "^4.13.1"
+  }
+}
