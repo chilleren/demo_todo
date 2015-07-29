@@ -1,6 +1,7 @@
 "use strict";
 
 var ErrorController = require("../api/controllers/error_controller");
+var TodoController = require("../api/controllers/error_controller");
 
 module.exports = function (app) {
   var errorController = new ErrorController();
