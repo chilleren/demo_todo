@@ -8,6 +8,7 @@
   },
   "author": "",
   "dependencies": {
-    "express": "^4.13.1"
+    "express": "^4.13.1",
+    "mongoose": "^4.1.0"
   }
 }
