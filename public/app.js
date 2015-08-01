@@ -1,4 +1,14 @@
-var app = angular.module("todo", []);
+var app = angular.module("todo", ["ui.router"]);
+
+app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+  $stateProvider.state("home", {
+    url: "/home",
+    templateUrl: "/home.html",
+    controller: "MainCtrl"
+  });
+
+  $urlRouterProvider.otherwise("home");
+}]);
 
 app.factory('todos', [function () {
   return {
@@ -11,25 +21,15 @@ app.factory('todos', [function () {
   }
 }]);
 
-app.controller("MainCtrl", [
-  "$scope",
-  "todos",
-  function ($scope, todos) {
-    $scope.test = "hello world";
+app.controller("MainCtrl", ["$scope", "todos", function ($scope, todos) {
 
-    $scope.todos = todos.todos;
+  $scope.todos = todos.todos;
 
-    $scope.addTodo = function () {
-      if (!$scope.title || $scope.title === "") {
-        return;
-      }
-      $scope.todos.push({title: $scope.title, isDone: false});
-      $scope.title = "";
+  $scope.addTodo = function () {
+    if (!$scope.title || $scope.title === "") {
+      return;
     }
-
-    // $scope.completeTodo = function (todo) {
-    //   console.log("heyo")
-    //   todo.isDone = !todo.isDone;
-    // }
+    $scope.todos.push({title: $scope.title, isDone: false});
+    $scope.title = "";
   }
-]);
+}]);
