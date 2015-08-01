@@ -9,14 +9,12 @@ module.exports = function (app) {
   var errorController = new ErrorController();
   var todoController = new TodoController();
 
-  // app.get("/", function (req, res) {
-  //   return res.send("hello world");
-  // });
 
+  app.route("/todos")
+    .get(todoController.getTodos)
+    .post(todosController.createTodo);
 
   app.use(express.static("public"));
-
-  app.get("/todos", todoController.getTodos);
 
   app.get("*", errorController.notFound);
 

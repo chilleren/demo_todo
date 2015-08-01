@@ -6,6 +6,11 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
     templateUrl: "/home.html",
     controller: "MainCtrl"
   });
+  $stateProvider.state("todos", {
+    url: "/todos",
+    templateUrl: "/todos.html",
+    controller: "TodosCtrl"
+  });
 
   $urlRouterProvider.otherwise("home");
 }]);
@@ -33,3 +38,17 @@ app.controller("MainCtrl", ["$scope", "todos", function ($scope, todos) {
     $scope.title = "";
   }
 }]);
+
+app.controller("TodosCtrl", ["$scope", "$stateParams", "todos", function ($scope, $stateParams, todos) {
+
+  $scope.todos = todos.todos;
+
+  $scope.addTodo = function () {
+    if (!$scope.title || $scope.title === "") {
+      return;
+    }
+    $scope.todos.push({title: $scope.title, isDone: false});
+    $scope.title = "";
+  }
+}]);
+
