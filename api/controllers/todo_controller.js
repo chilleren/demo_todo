@@ -16,7 +16,7 @@ module.exports = function () {
   }
 
   this.createTodo = function (req, res, next) {
-    var todo = req.body.todo;
+    var todo = req.body;
     return Todo.create(todo, function (err, result) {
       if (err) {
         return next(err);
@@ -24,6 +24,10 @@ module.exports = function () {
         return res.send(result);
       }
     });
+  }
+
+  this.updateTodo = function (req, res, next) {
+    var _id = req.params.id;
   }
 
 }

@@ -3,12 +3,14 @@
 var express = require("express");
 var fs = require("fs");
 var mongoose = require("mongoose");
-var path = require("path")
+var path = require("path");
+var bodyParser = require("body-parser");
 
 var config = require("./config");
 var routes = require("./api/routes");
 
 var app = express();
+app.use(bodyParser.json());
 
 config(app);
 app.set("ROOT_DIR", __dirname);

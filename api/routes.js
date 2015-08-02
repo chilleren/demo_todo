@@ -12,7 +12,10 @@ module.exports = function (app) {
 
   app.route("/todos")
     .get(todoController.getTodos)
-    .post(todosController.createTodo);
+    .post(todoController.createTodo);
+
+  app.route("/todos/:id")
+    .put(todoController.updateTodo)
 
   app.use(express.static("public"));
 

@@ -5,6 +5,7 @@
   "main": "server.js",
   "author": "Chris Hilleren",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "express": "^4.13.1",
     "mongoose": "^4.1.0"
   }
